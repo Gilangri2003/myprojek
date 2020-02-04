@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Violet | Template</title>
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="js/app.jsx">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <style>
+        .login {
+    width: 1100px;
+    height: 600px;
+    margin-top: 30px;
+    margin-left: 100px;
+
+}
+img {
+    height: 400px;
+    width: 600px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+.left {
+    width: 480px;
+    height: 550px;
+    float: right;
+}
+.kanan {
+    color:black;
+    margin-left: 40px;
+}
+a {
+    text-decoration: none;
+}
+.dalam {
+    background-color: white;
+    width: 400px;
+    height: 300px;
+    margin-left: 40px;
+    border-radius: 10px;
+}
+.btn {
+    border-radius: 15px;
+    margin-left: 10px;
+}
+.form-check {
+    margin-left: 1opx;
+}
+.form-group {
+    width: 300px;
+}
+#iconeye {
+    position: relative;
+    z-index: 1;
+    left: 90%;
+    top: -25px;
+    cursor: pointer;
+}
+.kiri {
+    width: 450px;
+    height: 400px;
+    float: left;
+
+    margin-top: 80px;
+    
+}
+    </style>
+</head>
+<body> 
+    <!-- start login -->
+    <div class="login">
+        <img src="/public/img/maker_2x.jpg" alt="">
+        <!-- star left -->
+        <div class="left">
+            <!-- star kanan -->
+            <div class="kanan">
+                <h2>Login</h2>
+            <p>Belum memiliki akun?</p>
+        </div>
+        <!-- star dalam -->
+        <div class="dalam">
+            <form action="login" method="POST" onSubmit="validasi()">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email</label>
+                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="masukan email">
+                  <!-- <span id="iconeye">
+                    <i class=" glyphicon glyphicon-envelope"></i>
+                </span> -->
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" name="password" class="form-control" id="password" placeholder="masukan password">
+                  <span id="iconeye" onclick="show()">
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                </span>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Ingatkan saya</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+              </form >
+        </div>
+        <div class="kiri">
+            <h2>REGISTER</h2>
+            <form action="register" method="POST" onSubmit="valued()">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Masukan Nama</label>
+                  <input type="text" name="nama" style="border-radius:20px; width:400px;" class="form-control" id="nama" aria-describedby="emailHelp" placeholder="masukan nama anda">
+                  <label for="exampleInputEmail1">Masukan Email</label>
+                  <input type="email" name="email" style="border-radius:20px; width:400px;" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="masukan email">
+                  <label for="exampleInputEmail1">Masukan No HP</label>
+                  <input type="text" name="no_hp" style="border-radius:20px; width:400px;" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="masukan no hp">
+                  <!-- <span id="iconeye">
+                    <i class=" glyphicon glyphicon-envelope"></i>
+                </span> -->
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Masukan Password</label>
+                  <input type="text" style="border-radius:20px; width:400px;" name="password" class="form-control" id="password" placeholder="masukan password">
+                  <!-- <span id="iconeye" onclick="show()">
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                </span> -->
+                </div>
+                
+                <button type="submit" class="btn btn-primary">submit</button>
+              </form>
+        </div>
+        <!-- end dalam -->
+        <!-- end kanan -->
+        </div>
+        <!-- end left -->
+    </div>
+    <!-- end login -->
+    <script>
+    function show() {
+    var nilai = document.getElementById('password').type;
+    if (nilai == 'password') {
+        document.getElementById('password').type = 'text';
+        document.getElementById ('iconeye').innerHTML = ' <i class="glyphicon glyphicon-eye-close"></i>';
+    }
+    else {
+        document.getElementById('password').type = 'password';
+        document.getElementById ('iconeye').innerHTML = 
+        ' <i class="glyphicon glyphicon-eye-open"></i>';
+    }
+    
+}
+
+    function valued() {
+        var nama = document.getElementById("nama").value;
+        var password = document.getElementById("password").value;
+        if(nama != "" && password !="") {
+         return true;
+        }else{
+            alert('anda harus mengisi data dengan lengkap');
+        }
+    }
+
+    function validasi1() {
+        var nama = document.getElementById("nama").value;
+        var email = document.getElementById("email").value;
+        var no_hp= document.getElementById("no_hp").value;
+        var password = document.getElementById("password").value;
+        if(nama !="" && email !="" && no_hp !="" && password !="") {
+            return true; 
+        }else{
+            alert('anda harus mengisi data dengan lengkap terlebih dahulu');
+        }
+    }
+</script>
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+     <!-- Include all compiled plugins (below), or include individual files as needed -->
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+</body>
+</html>
